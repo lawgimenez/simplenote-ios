@@ -12,7 +12,7 @@ commands:
       - run:
           name: Fix $PATH
           command: |
-            # Add `/usr/local/bin` to the Xcode 11.2 image's $PATH in order to be able to use dependencies
+            # Add `/usr/local/bin` to the Xcode image's $PATH in order to be able to use dependencies
 
             if [ $(echo $PATH | ruby -e "puts Kernel.gets.include?('/usr/local/bin')") != "true" ]; then
               echo 'export PATH=/usr/local/bin:$PATH' >> $BASH_ENV
@@ -40,7 +40,7 @@ jobs:
       - run: for ip in $(dig @8.8.8.8 github.com +short); do ssh-keyscan github.com,$ip; ssh-keyscan $ip; done 2>/dev/null >> ~/.ssh/known_hosts || true
       # END: Swift Package Manager Workaround
       - ios/test:
-          xcode-version: "11.6.0"
+          xcode-version: "12.0.0"
           workspace: Simplenote.xcworkspace
           scheme: Simplenote
           device: iPhone 11
@@ -48,7 +48,7 @@ jobs:
   Installable Build:
     executor:
       name: ios/default
-      xcode-version: "11.6.0"
+      xcode-version: "12.0.0"
     steps:
       - git/shallow-checkout
       - ios/install-dependencies:
@@ -76,7 +76,7 @@ jobs:
   Release Build:
     executor:
       name: ios/default
-      xcode-version: "11.6.0"
+      xcode-version: "12.0.0"
     environment:
       HOMEBREW_NO_AUTO_UPDATE: 1
     steps:
