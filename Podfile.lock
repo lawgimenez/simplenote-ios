@@ -74,7 +74,7 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   Simperium:
-    :commit: a2f8d205d1979a3d81512b8d6fa28d112c072997
+    :commit: ce97ebf6759bc804d32777e359693ea6dbcadd1a
     :git: https://github.com/Simperium/simperium-ios
 
 SPEC CHECKSUMS:
